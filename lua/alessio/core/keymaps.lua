@@ -10,10 +10,13 @@ local keymap = vim.keymap -- for conciseness
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 keymap.set("n", "<leader><Right>", "$")
 keymap.set("i", "<leader><Right>", "<ESC>$")
-keymap.set("i", "<leader><Left>", "<ESC>0")
-keymap.set("n", "<leader><Left>", "0")
+keymap.set("i", "<leader><Left>", "<ESC>_")
+keymap.set("n", "<leader><Left>", "_")
+keymap.set("n", "<C-a>", "ggVG")
 
--- keymap.set("n", "<C-Right>", "$")keymap.set("n", "<C-Right>", "$")
+keymap.set("n", "<S-Left>", "vb")
+keymap.set("n", "<S-Right>", "vb")
+keymap.set("n", "<C-a>", "ggVG")
 keymap.set("n", "<leader>t", ":term<CR>i")
 keymap.set("n", "<leader>tv", ":term<CR>i")
 
