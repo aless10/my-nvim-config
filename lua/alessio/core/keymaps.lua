@@ -9,8 +9,9 @@ local keymap = vim.keymap -- for conciseness
 
 keymap.set("n", "<leader>pv", vim.cmd.Ex)
 keymap.set("n", "<leader><Right>", "$")
-keymap.set("i", "<leader><Right>", "<ESC>$")
-keymap.set("i", "<leader><Left>", "<ESC>_")
+-- Pause this for now because inserting issues
+--keymap.set("i", "<leader><Right>", "<ESC>$")
+--keymap.set("i", "<leader><Left>", "<ESC>_")
 keymap.set("n", "<leader><Left>", "_")
 keymap.set("n", "<C-a>", "ggVG")
 
@@ -20,8 +21,6 @@ keymap.set("n", "<C-a>", "ggVG")
 keymap.set("n", "<leader>t", ":term<CR>i")
 keymap.set("n", "<leader>tv", ":term<CR>i")
 
--- use jk to exit insert mode
-keymap.set("i", "jk", "<ESC>")
 -- use esc to exit terminal mode
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
 
@@ -49,7 +48,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 -- Custom keymaps
 
 keymap.set("n", "<CR>", "<S-o><ESC>") --  move everything down:
-keymap.set("n", "<BS>", "<o><ESC>") --  move everything up:
+keymap.set("n", "<BS>", "dd") --  move everything up:
 
 ----------------------
 -- Plugin Keybinds
