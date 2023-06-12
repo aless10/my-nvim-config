@@ -4,8 +4,6 @@ if not lspconfig_status then
   return
 end
 
-lspconfig.pyright.setup({})
-
 -- import cmp-nvim-lsp plugin safely
 local cmp_nvim_lsp_status, cmp_nvim_lsp = pcall(require, "cmp_nvim_lsp")
 if not cmp_nvim_lsp_status then
@@ -57,6 +55,8 @@ for type, icon in pairs(signs) do
   local hl = "DiagnosticSign" .. type
   vim.fn.sign_define(hl, { text = icon, texthl = hl, numhl = "" })
 end
+
+lspconfig.pyright.setup({})
 
 -- configure html server
 lspconfig["html"].setup({
