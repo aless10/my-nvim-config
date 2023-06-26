@@ -56,9 +56,12 @@ return packer.startup(function(use)
   use("nvim-lualine/lualine.nvim")
 
   -- fuzzy finding w/ telescope
-  use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
   use({ "nvim-telescope/telescope.nvim", branch = "0.1.x" }) -- fuzzy finder
-
+  --use({ "nvim-telescope/telescope-fzf-native.nvim", run = "make" }) -- dependency for better sorting performance
+  use({
+    "nvim-telescope/telescope-fzf-native.nvim",
+    run = "cmake -S. -Bbuild -DCMAKE_BUILD_TYPE=Release && cmake --build build --config Release && cmake --install build --prefix build",
+  })
   -- autocompletion
   use("hrsh7th/nvim-cmp") -- completion plugin
   use("hrsh7th/cmp-buffer") -- source for text in buffer
@@ -100,22 +103,28 @@ return packer.startup(function(use)
     end,
   })
 
+  use("mfussenegger/nvim-dap")
+  use({
+    "mfussenegger/nvim-dap-python",
+    requires = {
+      { "mfussenegger/nvim-dap" },
+      { "rcarriga/nvim-dap-ui" },
+    },
+  })
+
+  use({ "rcarriga/nvim-dap-ui", requires = {
+    { "mfussenegger/nvim-dap" },
+  } })
+
   -- auto closing
+
   use("windwp/nvim-autopairs") -- autoclose parens, brackets, quotes, etc...
   use({ "windwp/nvim-ts-autotag", after = "nvim-treesitter" }) -- autoclose tags
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
 
-  use({
-    "/Users/alessioizzo//alessio/pytest.nvim",
-    config = function()
-      require("pytest").setup()
-    end,
-  })
-  use("/Users/alessioizzo/alessio/lua_plugins/ex-plugin.nvim")
   use("aless10/nvim-plugin-whid")
-  use("/Users/alessioizzo/alessio/oldFilesPlugin")
   if packer_bootstrap then
     require("packer").sync()
   end

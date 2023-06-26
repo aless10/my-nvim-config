@@ -7,7 +7,6 @@ local keymap = vim.keymap -- for conciseness
 -- General Keymaps
 ---------------------
 
-keymap.set("n", "<leader>pv", vim.cmd.Ex)
 keymap.set("n", "<leader><Right>", "$")
 -- Pause this for now because inserting issues
 --keymap.set("i", "<leader><Right>", "<ESC>$")

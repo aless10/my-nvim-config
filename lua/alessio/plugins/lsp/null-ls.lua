@@ -18,6 +18,7 @@ null_ls.setup({
     null_ls.builtins.formatting.gofmt,
     null_ls.builtins.formatting.goimports_reviser,
     null_ls.builtins.formatting.golines,
+    null_ls.builtins.formatting.black,
     --  to disable file types use
     --  "formatting.prettier.with({disabled_filetypes = {}})" (see null-ls docs)
     formatting.prettier, -- js/ts formatter
