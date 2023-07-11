@@ -1,7 +1,7 @@
-require("alessio.plugins-setup")
 require("alessio.core.options")
 require("alessio.core.keymaps")
 require("alessio.core.colorscheme")
+require("alessio.plugins-setup")
 require("alessio.plugins.comment")
 require("alessio.plugins.nvim-tree")
 require("alessio.plugins.lualine")

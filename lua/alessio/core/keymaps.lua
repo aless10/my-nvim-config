@@ -8,9 +8,6 @@ local keymap = vim.keymap -- for conciseness
 ---------------------
 
 keymap.set("n", "<leader><Right>", "$")
--- Pause this for now because inserting issues
---keymap.set("i", "<leader><Right>", "<ESC>$")
---keymap.set("i", "<leader><Left>", "<ESC>_")
 keymap.set("n", "<leader><Left>", "_")
 keymap.set("n", "<C-a>", "ggVG")
 
@@ -30,6 +27,12 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 keymap.set("n", "x", '"_x')
 
 -- increment/decrement numbers
+keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
+keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
+
+keymap.set("n", "<leader>y", '"+y')
+keymap.set("v", "<leader>y", '"+y')
+
 keymap.set("n", "<leader>+", "<C-a>") -- increment
 keymap.set("n", "<leader>-", "<C-x>") -- decrement
 
@@ -46,8 +49,11 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- Custom keymaps
 
-keymap.set("n", "<CR>", "<S-o><ESC>") --  move everything down:
+keymap.set("n", "<CR>", "i<CR><ESC>k$") --  move everything down:
 keymap.set("n", "<BS>", "dd") --  move everything up:
+
+keymap.set("n", "<leader><S-Left>", ":bprev<cr>")
+keymap.set("n", "<leader><S-Right>", ":bnext<cr>")
 
 ----------------------
 -- Plugin Keybinds
@@ -75,3 +81,9 @@ keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current c
 
 -- restart lsp server (not on youtube nvim video)
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
+
+keymap.set("n", "<leader>hui", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
+keymap.set("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
+
+keymap.set("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>") -- navigates to next mark
+keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>") -- navigates to previous mark
