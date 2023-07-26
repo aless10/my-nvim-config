@@ -1,8 +1,8 @@
 -- set leader key to space
 vim.g.mapleader = " "
-
+--
 local keymap = vim.keymap -- for conciseness
-
+--
 ---------------------
 -- General Keymaps
 ---------------------
@@ -14,8 +14,8 @@ keymap.set("n", "<C-a>", "ggVG")
 keymap.set("n", "<S-Left>", "vb")
 keymap.set("n", "<S-Right>", "vb")
 keymap.set("n", "<C-a>", "ggVG")
-keymap.set("n", "<leader>t", ":term<CR>i")
-keymap.set("n", "<leader>tv", ":term<CR>i")
+keymap.set("n", "<leader>ot", ":term<CR>i")
+keymap.set("n", "<leader>otv", ":term<CR>i")
 
 -- use esc to exit terminal mode
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
@@ -49,8 +49,9 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 -- Custom keymaps
 
-keymap.set("n", "<CR>", "i<CR><ESC>k$") --  move everything down:
-keymap.set("n", "<BS>", "dd") --  move everything up:
+keymap.set("n", "<TAB>", "i<TAB><ESC>")
+keymap.set("n", "<CR>", "i<CR><ESC>") --  move everything down:
+keymap.set("n", "<BS>", "i<BS><ESC>") --  move everything up:
 
 keymap.set("n", "<leader><S-Left>", ":bprev<cr>")
 keymap.set("n", "<leader><S-Right>", ":bnext<cr>")
@@ -79,11 +80,36 @@ keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git co
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
 keymap.set("n", "<leader>gs", "<cmd>Telescope git_status<cr>") -- list current changes per file with diff preview ["gs" for git status]
 
--- restart lsp server (not on youtube nvim video)
+-- restart lsp server
 keymap.set("n", "<leader>rs", ":LspRestart<CR>") -- mapping to restart lsp if necessary
 
+-- debugger
+keymap.set("n", "<leader>tf", ":lua require('dap-python').test_method()<CR>")
+keymap.set("n", "<leader>tc", ":lua require('dap-python').test_class()<CR>")
+keymap.set("n", "<leader>td", ":lua require('dap').continue()<CR>")
+keymap.set("n", "<leader>tb", ":lua require('dap').toggle_breakpoint()<CR>")
+keymap.set("n", "<leader>rd", function()
+  require("dap").continue()
+end)
+keymap.set("n", "<leader>n", function()
+  require("dap").step_over()
+end)
+keymap.set("n", "<leader>in", function()
+  require("dap").step_into()
+end)
+keymap.set("n", "<leader>out", function()
+  require("dap").step_out()
+end)
+
+-- harpoon
 keymap.set("n", "<leader>hui", ":lua require('harpoon.ui').toggle_quick_menu()<CR>")
 keymap.set("n", "<leader>ha", ":lua require('harpoon.mark').add_file()<CR>")
 
 keymap.set("n", "<leader>hn", ":lua require('harpoon.ui').nav_next()<CR>") -- navigates to next mark
 keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>") -- navigates to previous mark
+
+-- jq
+
+keymap.set("n", "<leader>pj", "%!jq<CR>")
+
+keymap.set("n", "p", "hpl<ESC>")

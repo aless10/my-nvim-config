@@ -131,7 +131,12 @@ return packer.startup(function(use)
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-
+  use({
+    "klen/nvim-test",
+    config = function()
+      require("nvim-test").setup()
+    end,
+  })
   use("aless10/nvim-plugin-whid")
   if packer_bootstrap then
     require("packer").sync()
