@@ -41,6 +41,7 @@ return packer.startup(function(use)
 
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+  use("tpope/vim-fugitive") -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
 
   -- commenting with gc
@@ -86,12 +87,14 @@ return packer.startup(function(use)
       require("lspsaga").setup({})
     end,
   })
+
   --use({
   --  "glepnir/lspsaga.nvim",
   --  branch = "main",
   --  requires = {
   --    { "nvim-tree/nvim-web-devicons" },
   --    { "nvim-treesitter/nvim-treesitter" },
+
   --  },
   --}) -- enhanced lsp uis
   use("jose-elias-alvarez/typescript.nvim") -- additional functionality for typescript server (e.g. rename file & update imports)
@@ -111,14 +114,15 @@ return packer.startup(function(use)
   })
 
   use("mfussenegger/nvim-dap")
-  use({
-    "mfussenegger/nvim-dap-python",
-    requires = {
-      { "mfussenegger/nvim-dap" },
-      { "rcarriga/nvim-dap-ui" },
-    },
-  })
-
+  -- use({
+  --   "mfussenegger/nvim-dap-python",
+  --   requires = {
+  --     { "mfussenegger/nvim-dap" },
+  --     { "rcarriga/nvim-dap-ui" },
+  --   },
+  -- })
+  --
+  use({ "nvim-neotest/nvim-nio" })
   use({ "rcarriga/nvim-dap-ui", requires = {
     { "mfussenegger/nvim-dap" },
   } })
@@ -131,12 +135,9 @@ return packer.startup(function(use)
 
   -- git integration
   use("lewis6991/gitsigns.nvim") -- show line modifications on left hand side
-  use({
-    "klen/nvim-test",
-    config = function()
-      require("nvim-test").setup()
-    end,
-  })
+  use("davidgranstrom/nvim-markdown-preview")
+
+  use("linux-cultist/venv-selector.nvim")
   use("aless10/nvim-plugin-whid")
   if packer_bootstrap then
     require("packer").sync()

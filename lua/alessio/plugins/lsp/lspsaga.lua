@@ -4,18 +4,18 @@ if not saga_status then
   return
 end
 
-saga.setup({
-  -- keybinds for navigation in lspsaga window
-  scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
-  -- use enter to open file with definition preview
-  definition = {
-    keys = {
-      edit = "o",
-    },
-  },
-  ui = {
-    colors = {
-      normal_bg = "#022746",
-    },
-  },
-})
+-- saga.setup({
+--   -- keybinds for navigation in lspsaga window
+--   scroll_preview = { scroll_down = "<C-f>", scroll_up = "<C-b>" },
+--   -- use enter to open file with definition preview
+--   definition = {
+--     keys = {
+--       edit = "o",
+--     },
+--   },
+--   ui = {
+--     colors = {
+--       normal_bg = "#022746",
+--     },
+--   },
+-- })

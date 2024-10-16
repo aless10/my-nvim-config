@@ -13,9 +13,6 @@ keymap.set("n", "<C-a>", "ggVG")
 
 keymap.set("n", "<S-Left>", "vb")
 keymap.set("n", "<S-Right>", "vb")
-keymap.set("n", "<C-a>", "ggVG")
-keymap.set("n", "<leader>ot", ":term<CR>i")
-keymap.set("n", "<leader>otv", ":term<CR>i")
 
 -- use esc to exit terminal mode
 keymap.set("t", "<ESC>", "<C-\\><C-n>")
@@ -26,7 +23,9 @@ keymap.set("n", "<leader>nh", ":nohl<CR>")
 -- delete single character without copying into register
 keymap.set("n", "x", '"_x')
 
--- increment/decrement numbers
+keymap.set("n", "<A-Up>", ":m '<-2<CR>gv=gv<ESC>")
+keymap.set("n", "<A-Down>", ":m '>+1<CR>gv=gv<ESC>")
+
 keymap.set("v", "<S-Down>", ":m '>+1<CR>gv=gv")
 keymap.set("v", "<S-Up>", ":m '<-2<CR>gv=gv")
 
@@ -51,7 +50,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 keymap.set("n", "<TAB>", "i<TAB><ESC>")
 keymap.set("n", "<CR>", "i<CR><ESC>") --  move everything down:
-keymap.set("n", "<BS>", "i<BS><ESC>") --  move everything up:
+keymap.set("n", "<BS>", "i<BS><Left><ESC>") --  delete when in normal mode. If beginning of a line, move everything up:
 
 keymap.set("n", "<leader><S-Left>", ":bprev<cr>")
 keymap.set("n", "<leader><S-Right>", ":bnext<cr>")
@@ -72,9 +71,7 @@ keymap.set("n", "<leader>fs", "<cmd>Telescope live_grep<cr>") -- find string in 
 keymap.set("n", "<leader>fc", "<cmd>Telescope grep_string<cr>") -- find string under cursor in current working directory
 keymap.set("n", "<leader>fb", "<cmd>Telescope buffers<cr>") -- list open buffers in current neovim instance
 keymap.set("n", "<leader>fh", "<cmd>Telescope help_tags<cr>") -- list available help tags
-keymap.set("n", "<leader>fb", "<cmd>Telescope file_browser path=%:p:h=%:p:h<cr>", { desc = "Browse Files" })
 
--- telescope git commands (not on youtube nvim video)
 keymap.set("n", "<leader>gc", "<cmd>Telescope git_commits<cr>") -- list all git commits (use <cr> to checkout) ["gc" for git commits]
 keymap.set("n", "<leader>gfc", "<cmd>Telescope git_bcommits<cr>") -- list git commits for current file/buffer (use <cr> to checkout) ["gfc" for git file commits]
 keymap.set("n", "<leader>gb", "<cmd>Telescope git_branches<cr>") -- list git branches (use <cr> to checkout) ["gb" for git branch]
@@ -112,4 +109,4 @@ keymap.set("n", "<leader>hp", ":lua require('harpoon.ui').nav_prev()<CR>") -- na
 
 keymap.set("n", "<leader>pj", "%!jq<CR>")
 
-keymap.set("n", "p", "hpl<ESC>")
+-- keymap.set("n", "p", "hpl<ESC>")
