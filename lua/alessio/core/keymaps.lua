@@ -50,7 +50,7 @@ keymap.set("n", "<leader>tp", ":tabp<CR>") --  go to previous tab
 
 keymap.set("n", "<TAB>", "i<TAB><ESC>")
 keymap.set("n", "<CR>", "i<CR><ESC>") --  move everything down:
-keymap.set("n", "<BS>", "i<BS><Left><ESC>") --  delete when in normal mode. If beginning of a line, move everything up:
+keymap.set("n", "<BS>", "i<BS><Right><ESC>") --  delete when in normal mode. If beginning of a line, move everything up:
 
 keymap.set("n", "<leader><S-Left>", ":bprev<cr>")
 keymap.set("n", "<leader><S-Right>", ":bnext<cr>")

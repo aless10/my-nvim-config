@@ -41,6 +41,7 @@ return packer.startup(function(use)
 
   -- essential plugins
   use("tpope/vim-surround") -- add, delete, change surroundings (it's awesome)
+  use("tpope/vim-commentary")
   use("tpope/vim-fugitive") -- add, delete, change surroundings (it's awesome)
   use("inkarkat/vim-ReplaceWithRegister") -- replace with register contents using motion (gr + motion)
 
@@ -126,6 +127,9 @@ return packer.startup(function(use)
   use({ "rcarriga/nvim-dap-ui", requires = {
     { "mfussenegger/nvim-dap" },
   } })
+
+  use({ "machakann/vim-highlightedyank" })
+
   use({ "nvim-treesitter/playground" })
   use("ThePrimeagen/harpoon")
   -- auto closing
